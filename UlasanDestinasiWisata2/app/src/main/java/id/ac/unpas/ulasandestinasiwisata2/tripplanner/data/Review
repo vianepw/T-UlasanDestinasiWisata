@@ -1,0 +1,16 @@
+package id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.tripplanner.data
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.util.*
+
+@Entity(tableName = "reviews")
+data class Review(
+    @PrimaryKey val id: UUID = UUID.randomUUID(),
+    val destinationId: UUID,
+    val author: String,                             //gunakan varchar
+    val rate: Float,
+    val content: String,                            //gunakan text
+    val createdAt: Date = Date(),                   //datetime
+    val updatedAt: Date = Date()                    //datetime
+)

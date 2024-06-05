@@ -1,0 +1,27 @@
+package id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.components.ui.components
+
+// cari tahu package nya
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import id.ac.unpas.T-UlasanDestinasiWisata.UlasanDestinasiWisata.tripplanner.data.TripPlan
+
+@Composable
+fun TripPlanItem(tripPlan: TripPlan) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp),
+        elevation = 4.dp
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(text = "Destination ID: ${tripPlan.destinationId}")
+            Text(text = "Visit Date: ${tripPlan.visitDate}")
+            tripPlan.notes?.let { notes ->
+                Text(text = "Notes: $notes")
+            }
+        }
+    }
+}

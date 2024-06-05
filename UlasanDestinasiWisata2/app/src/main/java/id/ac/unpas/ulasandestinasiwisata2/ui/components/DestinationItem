@@ -1,0 +1,25 @@
+package id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.ui.components
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.tripplanner.data.Destination
+
+@Composable
+fun DestinationItem(destination: Destination) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp),
+        elevation = 4.dp
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(text = "Name: ${destination.name}")
+            Text(text = "Location: ${destination.location}")
+            Text(text = "Price: ${destination.price}")              // 'gratis'
+            Text(text = "Description: ${destination.description}")
+        }
+    }
+}

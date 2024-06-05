@@ -1,0 +1,40 @@
+package id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.viewmodel
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.ui.screens.DestinationsScreen
+import id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.ui.screens.ReviewsScreen
+import id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.ui.screens.TripPlansScreen
+import java.util.*
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            TripPlannerApp()
+        }
+    }
+}
+
+@Composable
+fun TripPlannerApp() {
+    val navController = rememberNavController()
+
+    Scaffold(
+        bottomBar = {
+            BottomNavigationBar(navController)
+        }
+    ) {
+        NavigationHost(navController)
+    }
+}
+
+@Composable
+fun

@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id ("kotlin-kapt")
 }
+//contoh: apply plugin: 'com.android.application'
 
 android {
     namespace = "id.ac.unpas.ulasandestinasiwisata2"

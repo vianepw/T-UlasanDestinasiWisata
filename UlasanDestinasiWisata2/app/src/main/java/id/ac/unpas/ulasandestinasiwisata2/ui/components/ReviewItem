@@ -1,0 +1,26 @@
+package id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.ui.components
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.tripplanner.data.Review
+
+@Composable
+fun ReviewItem(review: Review) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp),
+        elevation = 4.dp
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(text = "Author: ${review.author}")
+            Text(text = "Rate: ${review.rate}")
+            review.content?.let { content ->
+                Text(text = "Content: $content")
+            }
+        }
+    }
+}

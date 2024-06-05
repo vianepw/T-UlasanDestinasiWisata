@@ -1,0 +1,42 @@
+package id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.ui.screens
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.tripplanner.data.Destination
+import id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.tripplanner.ui.components.DestinationItem
+import id.ac.unpas.T-UlasanDestinasiWisata.ulasandestinasiwisata2.tripplanner.viewmodel.TripPlannerViewModel
+
+@Composable
+fun DestinationsScreen(
+    viewModel: TripPlannerViewModel = viewModel()
+) {
+    val destinations by viewModel.allDestinations.collectAsState()
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Destinations") }
+            )
+        },
+        content = { paddingValues ->
+            LazyColumn(
+                contentPadding = paddingValues,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)
+            ) {
+                items(destinations) { destination ->
+                    DestinationItem(destination)
+                }
+            }
+        }
+    )
+}
